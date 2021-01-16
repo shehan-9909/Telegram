@@ -1,0 +1,64 @@
+#!/usr/bin/bash
+#auther -shehan lahiru
+#dont copy or mod this script
+lg='\e[1;32m'
+ye='\e[1;33m'
+blue='\e[1;34m'
+re='\e[1;31m'
+clear
+python3 -m venv venv
+source venv/bin/activate
+echo " "
+echo -e $lg " +-------------------------------------------+"
+echo -e "  |         ${ye}TELEGRAM SETUP Basic-Setup   ${lg}     |"
+echo -e $lg	" +-------------------------------------------+"
+which telethon > /dev/null 2>&1
+if [ "$?" -eq "0" ]
+ then
+    echo " "
+    echo -e $ye "[${re} ✔ ${ye}].......................${lg}[ PIP upgrade ]"
+    echo " "
+    sleep 2
+ else
+    echo -e $lg "[¤] Upgrading "
+    sleep 1
+    echo -e $blue " [ ! ] Installing........."
+    pip  install --upgrade pip
+    pip install requests
+    clear
+    pip install telethon
+    clear
+    pip install twilio
+    clear
+    echo " "
+
+fi
+which requests > /dev/null 2>&1
+if [ "$?" -eq "0" ]
+ then
+    echo -e $ye "[ ${re}✔ ${ye}].......................${lg}[ REQUESTS ]"
+    which requests
+    echo ""
+    sleep 2
+ else 
+   echo ""
+   echo -e $re "   [-] REQUESTS  not found. Installing curl "
+   pip install requests
+fi
+echo " "
+echo -e $ye "[${re} ¤ ${ye}] This Could Take 2-3 Minutes "
+echo "       Installing pakegs"
+echo " "
+pkg install figlet > /dev/null 2>&1
+clear
+
+figlet -f small "Installation"
+figlet -f small " Completed " | lolcat
+echo -e $blue " "
+echo -e $re "https://github.com/shehan9909/Telegram"
+echo -e $ye " Setup completed.................."
+echo -n " Press enter to continue............."
+read fil
+clear
+echo -e $ylo"Type :- python telegram_bot.py"
+exit
